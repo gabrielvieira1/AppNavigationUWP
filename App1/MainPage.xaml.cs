@@ -74,9 +74,14 @@ namespace App1
 
     private void Button_Click_2(object sender, RoutedEventArgs e)
     {
-      InnerFrame.Navigate(typeof(BlankSubPage2));
+      var data = new MyData { Message = "Hello from BlankSubPage1" };
+      InnerFrame.Navigate(typeof(BlankSubPage2), data);
       this.GoBackButton.IsEnabled = InnerFrame.BackStack.Any();
       SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = InnerFrame.BackStack.Any() ? AppViewBackButtonVisibility.Visible : AppViewBackButtonVisibility.Collapsed;
     }
+  }
+  public class MyData
+  {
+    public string Message { get; set; }
   }
 }

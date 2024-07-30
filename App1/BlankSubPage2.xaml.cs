@@ -26,5 +26,15 @@ namespace App1
     {
       this.InitializeComponent();
     }
+
+    protected override void OnNavigatedTo(NavigationEventArgs e)
+    {
+      base.OnNavigatedTo(e);
+
+      if (e.Parameter is MyData data)
+      {
+        MyTextBlock.Text = data.Message;
+      }
+    }
   }
 }
